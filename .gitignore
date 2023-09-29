@@ -1,0 +1,17 @@
+*~
+.qmake.stash
+hdt-it/Makefile
+hdt-it/Makefile.Debug
+hdt-it/Makefile.Release
+hdt-lib/**/*.o
+hdt-lib/examples/generate
+hdt-lib/examples/search
+hdt-lib/libhdt.a
+hdt-lib/tools/hdt2rdf
+hdt-lib/tools/hdtInfo
+hdt-lib/tools/hdtSearch
+hdt-lib/tools/rdf2hdt
+hdt-lib/tools/replaceHeader
+libcds-v1.0.12/includes/*
+libcds-v1.0.12/lib/libcds.a
+libcds-v1.0.12/src/**/*.o
