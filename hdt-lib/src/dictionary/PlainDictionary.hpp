@@ -41,8 +41,7 @@
 #include <algorithm>
 #include <fstream>
 #include <iostream>
-
-#include <ext/hash_map>
+#include <unordered_map>
 
 //#define GOOGLE_HASH
 
@@ -81,7 +80,7 @@ typedef std::pair<const char*, DictionaryEntry *> DictEntryPair;
 #ifdef GOOGLE_HASH 
 typedef sparse_hash_map<const char *, DictionaryEntry *, hash<const char *>, str_cmp> DictEntryHash;
 #else
-typedef std::hash_map<const char *, DictionaryEntry *, hash<const char *>, str_cmp> DictEntryHash;
+typedef std::unordered_map<const char *, DictionaryEntry *, hash<const char *>, str_cmp> DictEntryHash;
 #endif
 
 typedef DictEntryHash::const_iterator DictEntryIt;
