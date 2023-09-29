@@ -2,6 +2,8 @@
 #include "ui_hdtspecform.h"
 
 #include <QtGui>
+#include <QFileDialog>
+#include <QMessageBox>
 
 HDTSpecForm::HDTSpecForm(QWidget *parent) :
     QDialog(parent),
