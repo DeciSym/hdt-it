@@ -88,7 +88,7 @@ vector<hdt::TripleID> &HDTCachedInfo::getTriples()
 
 void HDTCachedInfo::save(QString &fileName, hdt::ProgressListener *listener)
 {
-    std::ofstream out(fileName.toAscii(), ios::binary);
+    std::ofstream out(fileName.toLatin1(), ios::binary);
     unsigned int numTriples = triples.size();
     out.write((char *)&numTriples, sizeof(unsigned int));
     out.write((char *)&triples[0], sizeof(hdt::TripleID)*numTriples);
@@ -99,7 +99,7 @@ void HDTCachedInfo::load(QString &fileName, hdt::ProgressListener *listener)
 {
     generateGeneralInfo(listener);
 
-    std::ifstream in(fileName.toAscii(), ios::binary);
+    std::ifstream in(fileName.toLatin1(), ios::binary);
     if(in.good()) {
         unsigned int numTriples;
         in.read((char *)&numTriples, sizeof(unsigned int));

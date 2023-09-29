@@ -2,6 +2,10 @@
 
 #include "stringutils.hpp"
 
+#include <QTreeWidget>
+#include <QHeaderView>
+#include <QLineEdit>
+
 #include <HDTVocabulary.hpp>
 
 #define NUM_SUGGESTIONS 10

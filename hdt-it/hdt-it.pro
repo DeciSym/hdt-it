@@ -4,14 +4,16 @@
 #
 #-------------------------------------------------
 
-QT       += core gui opengl
+QT       += core gui opengl concurrent
 
 QMAKE_CXXFLAGS_RELEASE -= -O2
 QMAKE_CXXFLAGS_RELEASE += -O3
 
+QMAKE_LFLAGS += -fopenmp
+
 #macx:QMAKE_CXXFLAGS += -msse4.2
 
-win32-g++:contains(QMAKE_HOST.arch, x86_64):{
+win32-g++:contains(QMAKE_HOST.arch, x86_64) {
         CONFIG += exceptions rtti
 }
 
@@ -99,7 +101,8 @@ LIBCDS = ../libcds-v1.0.12
 # Using Qt Projects
 win32:LIBS += ../hdt-lib/qmake/win32/libhdt.a $${LIBCDS}/qmake/win32/libcds.a
 
-unix:!macx:LIBS += ../hdt-lib/qmake/unix/libhdt.a $${LIBCDS}/qmake/unix/libcds.a -lGLU
+# unix:!macx:LIBS += ../hdt-lib/qmake/unix/libhdt.a $${LIBCDS}/qmake/unix/libcds.a -lGLU
+unix:!macx:LIBS += ../hdt-lib/libhdt.a $${LIBCDS}/lib/libcds.a -lGLU
 macx:LIBS += $${LIBCDS}/qmake/macx/libcds.a ../hdt-lib/qmake/macx/libhdt.a
 
 PRE_TARGETDEPS += $$LIBS
@@ -107,14 +110,14 @@ PRE_TARGETDEPS += $$LIBS
 #External libs
 
 #Windows
-win32-g++:contains(QMAKE_HOST.arch, x86_64):{
+win32-g++:contains(QMAKE_HOST.arch, x86_64) {
     win32:LIBS += -L"C:/msys/local/lib/" -lraptor2 -lxml2 -lws2_32
 } else {
     win32:LIBS += -L"C:/MinGW/msys/1.0/local/lib/" -lraptor2 -lxml2 -lws2_32
 }
 
 #Unix (Linux & Mac)
-unix:LIBS += -lraptor2 -lz
+unix:LIBS += -lserd-0 -lraptor2 -lz
 
 RESOURCES += \
     hdtresources.qrc
