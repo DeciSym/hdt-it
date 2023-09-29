@@ -103,7 +103,7 @@ namespace cds_static
 
 	uint RMQ_succinct_lcp::log2fast(uint v) {
 		uint c = 0;				 // c will be lg(v)
-		register uint t, tt;	 // temporaries
+		uint t, tt;	 // temporaries
 
 		if ((tt = v >> 16))
 			c = (t = v >> 24) ? 24 + LogTable256[t] : 16 + LogTable256[tt & 0xFF];
@@ -112,7 +112,7 @@ namespace cds_static
 		return c;
 	}
 
-	const DTsucc RMQ_succinct_lcp::HighestBitsSet[8] = {~0, ~1, ~3, ~7, ~15, ~31, ~63, ~127};
+  const DTsucc RMQ_succinct_lcp::HighestBitsSet[8] = {(DTsucc)~0, (DTsucc)~1, (DTsucc)~3, (DTsucc)~7, (DTsucc)~15, (DTsucc)~31, (DTsucc)~63, (DTsucc)~127};
 
 	DTsucc RMQ_succinct_lcp::clearbits(DTsucc n, uint x) {
 		return n & HighestBitsSet[x];
