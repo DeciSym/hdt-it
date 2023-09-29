@@ -13,7 +13,7 @@ QMAKE_LFLAGS += -fopenmp
 
 #macx:QMAKE_CXXFLAGS += -msse4.2
 
-win32-g++:contains(QMAKE_HOST.arch, x86_64):{
+win32-g++:contains(QMAKE_HOST.arch, x86_64) {
         CONFIG += exceptions rtti
 }
 
@@ -110,7 +110,7 @@ PRE_TARGETDEPS += $$LIBS
 #External libs
 
 #Windows
-win32-g++:contains(QMAKE_HOST.arch, x86_64):{
+win32-g++:contains(QMAKE_HOST.arch, x86_64) {
     win32:LIBS += -L"C:/msys/local/lib/" -lraptor2 -lxml2 -lws2_32
 } else {
     win32:LIBS += -L"C:/MinGW/msys/1.0/local/lib/" -lraptor2 -lxml2 -lws2_32

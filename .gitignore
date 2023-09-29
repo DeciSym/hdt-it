@@ -3,6 +3,7 @@
 hdt-it/Makefile
 hdt-it/Makefile.Debug
 hdt-it/Makefile.Release
+hdt-it/unix/*
 hdt-lib/**/*.o
 hdt-lib/examples/generate
 hdt-lib/examples/search
