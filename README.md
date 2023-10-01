@@ -1,7 +1,7 @@
 # HDT-it
 
-This repository currently includes notes for building HDT-it on a
-recent Linux distribution.
+This repository currently includes notes for building the historical HDT-it on a
+recent Linux distribution. The currently maintained codebase for HDT-it is https://github.com/rdfhdt/hdt-cpp.
 
 ## Build
 
